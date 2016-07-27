@@ -5,11 +5,21 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new \Silex\Application();
 
-// ... definitions
+$app->register(new \Silex\Provider\MonologServiceProvider(), array(
+    'monolog.logfile' => __DIR__.'/../var/logs/development.log',
+));
+
+$app->register(new \Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__.'/Views',
+));
+
 $app['debug'] = true;
 
 $app->get('/hello/{name}', function($name) use($app) {
-	    return 'Hello '.$app->escape($name);
+  return $app['twig']->render('hello.twig', array(
+    'name' => $name,
+  ));
+
 });
 
 $app->mount('/', new HelloControllerProvider());
