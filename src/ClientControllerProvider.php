@@ -84,7 +84,7 @@ class ClientControllerProvider implements ControllerProviderInterface
       return $app['twig']->render('authenticate.twig', array('form' => $form->createView()));
     });
 
-    $controllers->match('/callback', function (Request $request) use ($app) {
+		$controllers->match('/callback', function (Request $request) use ($app) {
       $data = $app['session']->get('client');
 
       $oidc   = new \OpenIDConnectClient($data['url'],
@@ -101,6 +101,12 @@ class ClientControllerProvider implements ControllerProviderInterface
 
       // display the form
       return $app['twig']->render('callback.twig', array('data' => $name));
+    });
+
+
+		$controllers->match('/', function (Request $request) use ($app) {
+      // display the form
+      return $app['twig']->render('home.twig');
     });
 
     return $controllers;
