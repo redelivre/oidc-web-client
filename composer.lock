@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a6de276a1812a3f9a8fd3f138dc4b9e8",
-    "content-hash": "1c32bd23eb8ac77b514386ba0118432c",
+    "hash": "d1fbe9b53f8a2b44b8e7b19e9fa71641",
+    "content-hash": "89333fd73212a72289329fc06f5a182a",
     "packages": [
         {
             "name": "jumbojett/openid-connect-php",
@@ -1570,6 +1570,57 @@
             "time": "2016-06-29 05:41:56"
         },
         {
+            "name": "twbs/bootstrap",
+            "version": "v4.0.0-alpha.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "c7de6107a86ebe65a6f5d5b88884256e5094ca92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/c7de6107a86ebe65a6f5d5b88884256e5094ca92",
+                "reference": "c7de6107a86ebe65a6f5d5b88884256e5094ca92",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "mobile-first",
+                "responsive",
+                "sass",
+                "web"
+            ],
+            "time": "2016-07-27 16:40:40"
+        },
+        {
             "name": "twig/twig",
             "version": "v1.24.1",
             "source": {
@@ -1635,7 +1686,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "jumbojett/openid-connect-php": 20
+        "jumbojett/openid-connect-php": 20,
+        "twbs/bootstrap": 15
     },
     "prefer-stable": false,
     "prefer-lowest": false,

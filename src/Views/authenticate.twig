@@ -1,5 +1,13 @@
-<form action="#" method="post">
-    {{ form_widget(form) }}
+{% extends "base.html" %}
 
-    <input type="submit" name="submit" />
-</form>
+{% block title %}Auth{% endblock %}
+
+{% block content %}
+    <h1>Auth</h1>
+
+		<form action="#" method="post">
+		    {{ form_widget(form) }}
+
+		    <input type="submit" name="submit" />
+		</form>
+{% endblock %}

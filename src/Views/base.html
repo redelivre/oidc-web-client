@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+		{% block head %}
+				<title>{% block title %}{% endblock %} - My Webpage</title>
+		{% endblock %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+  </head>
+  <body>
+		<div class="container">{% block content %}{% endblock %}</div>
+		<div id="footer">
+				{% block footer %}
+						&copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+				{% endblock %}
+		</div>
+		<script src="js/bootstrap.js"></script>
+  </body>
+</html>

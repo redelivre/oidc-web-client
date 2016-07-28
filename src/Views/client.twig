@@ -1,5 +1,18 @@
-<form action="#" method="post">
-    {{ form_widget(form) }}
+{% extends "base.html" %}
 
-    <input type="submit" name="submit" />
-</form>
+{% block title %}Client{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>Client</h1>
+
+		<form action="#" method="post">
+		    {{ form_widget(form) }}
+
+		    <input type="submit" name="submit" />
+		</form>
+{% endblock %}
