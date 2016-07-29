@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Client{% endblock %}
+{% block title %}Test your Authentication Strategy {% endblock %}
 {% block head %}
     {{ parent() }}
     <style type="text/css">
@@ -9,32 +9,28 @@
 {% endblock %}
 {% block content %}
       <div class="jumbotron">
-        <h1 class="display-3">Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+        <h1 class="display-4">Authentication Strategy</h1>
+        <p class="lead">Fully-tested with any OpenID server compliant, you only need a issuer URL. Try with <a href="https://alpha.id.cultura.gov.br" target="_blank">ID Cultura</a> and check for yourself how OpenID Connect specification works.</p>
+        <p><a class="btn btn-lg btn-success" href="/client" role="button">Try Register</a></p>
       </div>
 
       <div class="row marketing">
         <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          <h4>OIDC Dynamic Registration</h4>
+          <p>Following to <a href="http://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration" target="_blank">OpenID specification</a> you can self register a new client and save to session after successful register.</p>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+          <h4>Session Enabled</h4>
+          <p>After register, the new generated Client ID and Client Secret will be saved to session and you could authenticate with this client.</p>
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
 
         <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          <h4>Scopes and User Info</h4>
+          <p>When you are testing authentication, you have an option to change scopes and user info you will want to access.</p>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+          <h4>Open Source</h4>
+          <p>This project was build to test <a href="https://github.com/redelivre/login-cidadao" target="_blank">Login Cidadão</a> OpenID capabilities. Thanks to <a href="https://github.com/guilhermednt" target="_blank">@guilhermednt</a> to help with his knowledge about OpenID.</p>
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
       </div>
 {% endblock %}
