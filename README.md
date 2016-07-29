@@ -4,7 +4,7 @@ OpenID Connect and Oauth2 client tester with any compilant server
 
 ## Requirements
 
-* PHP > 7
+* PHP >= 7
 * Composer
 
 ## Setup

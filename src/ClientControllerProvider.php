@@ -19,9 +19,9 @@ class ClientControllerProvider implements ControllerProviderInterface
     $controllers->match('/client', function (Request $request) use ($app) {
       // some default data for when the form is displayed the first time
       $data = array(
-        'client_name' => 'Name',
-        'url' => 'OpenID URL',
-        'redirect_url' => 'Redirect URL'
+        'client_name' => 'my-lc',
+        'url' => 'http://alpha.id.cultura.gov.br/app.php/',
+        'redirect_url' => 'http://oidc-web-client.programador-independente.xyz/'
       );
 
       $form = $app['form.factory']->createBuilder(FormType::class, $data)
