@@ -28,7 +28,7 @@ This project was build to test Login Cidadão OpenID capabilities. Thanks to @gu
 ## Setup
 
 ```
-git clone git@github.com:lpirola/oidc-web-client.git
+git clone git@github.com:redelivre/oidc-web-client.git
 cd oidc-web-client
 composer install
 php -S localhost:8080 -t web web/index.php
