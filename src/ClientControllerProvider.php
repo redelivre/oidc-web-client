@@ -12,16 +12,15 @@ class ClientControllerProvider implements ControllerProviderInterface
 {
   public function connect(Application $app)
   {
-    ini_set('CURLOPT_ACCEPTTIMEOUT_MS', 90000);
     // creates a new controller based on the default route
     $controllers = $app['controllers_factory'];
 
     $controllers->match('/client', function (Request $request) use ($app) {
       // some default data for when the form is displayed the first time
       $data = array(
-        'client_name' => 'Name',
-        'url' => 'OpenID URL',
-        'redirect_url' => 'Redirect URL'
+        'client_name' => 'my-lc',
+        'url' => 'http://alpha.id.cultura.gov.br/app.php/',
+        'redirect_url' => 'http://oidc-web-client.programador-independente.xyz/'
       );
 
       $form = $app['form.factory']->createBuilder(FormType::class, $data)
@@ -61,6 +60,7 @@ class ClientControllerProvider implements ControllerProviderInterface
       ->add('client_id')
       ->add('client_secret')
       ->add('scopes')
+      ->add('user_info')
       ->add('redirect_url')
       ->getForm();
 
@@ -69,15 +69,15 @@ class ClientControllerProvider implements ControllerProviderInterface
       if ($form->isValid()) {
         $data = $form->getData();
         $app['session']->set('client', $data);
+
         $oidc = new \OpenIDConnectClient($data['url'],
                                         $data['client_id'],
                                         $data['client_secret']);
         $oidc->setRedirectURL($data['redirect_url']);
         $oidc->setProviderURL($data['url']);
-        $oidc->authenticate();
-        $name = $oidc->requestUserInfo($data['scopes']);
+        $oidc->addScope(explode(',', $data['scopes']));
 
-        $app['monolog']->addDebug($name);
+        $oidc->authenticate();
       }
 
       // display the form
@@ -92,20 +92,16 @@ class ClientControllerProvider implements ControllerProviderInterface
                                       $data['client_secret']);
       $oidc->setRedirectURL($data['redirect_url']);
       $oidc->setProviderURL($data['url']);
-      $oidc->authenticate();
-      // $app['session']->set('accessToken', $oidc->accessToken);
       $oidc->addScope(explode(',', $data['scopes']));
-      $name = $oidc->requestUserInfo($data['scopes']);
 
-      // $app['monolog']->addDebug(print_r()$data);
+      $oidc->authenticate();
+      $user_info = $oidc->requestUserInfo($data['user_info']);
 
-      // display the form
-      return $app['twig']->render('callback.twig', array('data' => $name));
+      return $app['twig']->render('callback.twig', array('data' => $user_info));
     });
 
 
 		$controllers->match('/', function (Request $request) use ($app) {
-      // display the form
       return $app['twig']->render('home.twig');
     });
 
