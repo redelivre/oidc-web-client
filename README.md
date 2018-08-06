@@ -2,6 +2,9 @@
 
 Fully-tested with any OpenID server compliant, you only need a issuer URL. Try with ID Cultura and check for yourself how OpenID Connect specification works.
 
+[![Join the chat at https://telegram.me/IdentidadeDigital](https://patrolavia.github.io/telegram-badge/chat.png)](https://t.me/RedeLivreOrg)
+
+
 ## Motivations
 
 ### OIDC Dynamic Registration
